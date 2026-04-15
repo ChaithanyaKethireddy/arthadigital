@@ -24,44 +24,45 @@
    1. CSS VARIABLES / DESIGN TOKENS
    ────────────────────────────────────────────────────────── */
 :root {
-    --color-primary: #6C3DE8;
-    --color-primary-dark: #5328CB;
-    --color-secondary: #3B82F6;
-    --color-accent: #A78BFA;
+    --color-primary: #0A192F; /* Deep Navy */
+    --color-primary-light: #1B263B;
+    --color-accent: #FF7D00; /* Artha Orange */
+    --color-accent-dark: #E67000;
 
-    --color-dark: #0A0C14;
-    --color-dark-2: #111527;
-    --color-dark-3: #1A1F35;
+    --color-dark: #0A192F;
+    --color-dark-2: #111B31;
+    --color-dark-3: #1A2642;
 
-    --color-text: #1E293B;
-    --color-text-muted: #64748B;
+    --color-text: #1B263B;
+    --color-text-muted: #576581;
     --color-text-light: #94A3B8;
 
     --color-bg: #FFFFFF;
-    --color-bg-light: #F8FAFC;
-    --color-bg-dark: #0A0C14;
+    --color-bg-light: #F8F9FA;
+    --color-bg-dark: #0A192F;
 
     --color-border: #E2E8F0;
     --color-white: #FFFFFF;
 
-    --gradient-primary: linear-gradient(135deg, #6C3DE8 0%, #3B82F6 100%);
-    --gradient-glow: linear-gradient(135deg, rgba(108, 61, 232, 0.12) 0%, rgba(59, 130, 246, 0.12) 100%);
+    --gradient-primary: linear-gradient(135deg, #0A192F 0%, #1B263B 100%);
+    --gradient-accent: linear-gradient(135deg, #FF7D00 0%, #FF9F43 100%);
+    --gradient-glow: linear-gradient(135deg, rgba(255, 125, 0, 0.1) 0%, rgba(255, 159, 67, 0.1) 100%);
 
-    --font-heading: 'Montserrat', sans-serif;
-    --font-body: 'Roboto', sans-serif;
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
 
     --section-pad: 100px;
     --section-pad-sm: 60px;
 
-    --radius-sm: 8px;
-    --radius-md: 16px;
-    --radius-lg: 24px;
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
     --radius-full: 9999px;
 
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
-    --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.10);
-    --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.14);
-    --shadow-glow: 0 8px 40px rgba(108, 61, 232, 0.25);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.12);
+    --shadow-accent: 0 8px 30px rgba(255, 125, 0, 0.2);
 
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -137,13 +138,13 @@ h6 {
 .section-label {
     display: inline-block;
     font-family: var(--font-heading);
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 700;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--color-primary);
-    margin-bottom: 14px;
-    padding-left: 32px;
+    color: var(--color-accent);
+    margin-bottom: 16px;
+    padding-left: 36px;
     position: relative;
 }
 
@@ -153,9 +154,9 @@ h6 {
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-    width: 22px;
+    width: 24px;
     height: 2px;
-    background: var(--gradient-primary);
+    background: var(--color-accent);
     border-radius: 2px;
 }
 
@@ -200,6 +201,13 @@ h6 {
     background-clip: text;
 }
 
+.gradient-accent-text {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
 
 /* ──────────────────────────────────────────────────────────
    4. UTILITY CLASSES
@@ -209,7 +217,7 @@ h6 {
 }
 
 .bg-dark-custom {
-    background-color: var(--color-bg-dark);
+    background-color: var(--color-primary);
 }
 
 .min-vh-100 {
@@ -224,10 +232,10 @@ h6 {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: var(--gradient-primary);
+    background: var(--color-accent);
     color: var(--color-white) !important;
     border: none;
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-sm);
     padding: 14px 36px;
     font-family: var(--font-heading);
     font-size: 14px;
@@ -236,13 +244,14 @@ h6 {
     text-transform: uppercase;
     cursor: pointer;
     transition: var(--transition);
-    box-shadow: var(--shadow-glow);
+    box-shadow: 0 4px 15px rgba(255, 125, 0, 0.2);
     text-decoration: none;
 }
 
 .btn-primary-custom:hover {
+    background: var(--color-accent-dark);
     transform: translateY(-2px);
-    box-shadow: 0 12px 50px rgba(108, 61, 232, 0.4);
+    box-shadow: 0 8px 25px rgba(255, 125, 0, 0.35);
     color: var(--color-white);
 }
 
@@ -251,9 +260,9 @@ h6 {
     align-items: center;
     gap: 8px;
     background: transparent;
-    color: var(--color-primary) !important;
-    border: 2px solid var(--color-primary);
-    border-radius: var(--radius-full);
+    color: var(--color-white) !important;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: var(--radius-sm);
     padding: 12px 34px;
     font-family: var(--font-heading);
     font-size: 14px;
@@ -266,10 +275,10 @@ h6 {
 }
 
 .btn-outline-custom:hover {
-    background: var(--color-primary);
-    color: var(--color-white) !important;
+    background: var(--color-white);
+    color: var(--color-primary) !important;
+    border-color: var(--color-white);
     transform: translateY(-2px);
-    box-shadow: var(--shadow-glow);
 }
 
 .btn-lg {
@@ -306,10 +315,10 @@ h6 {
 
 #main-nav.scrolled {
     padding: 14px 0;
-    background: rgba(10, 12, 20, 0.95);
+    background: rgba(10, 25, 47, 0.98);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
 }
 
 .navbar-brand {
@@ -406,10 +415,10 @@ h6 {
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(120deg,
-            rgba(10, 12, 20, 0.92) 0%,
-            rgba(10, 12, 20, 0.75) 50%,
-            rgba(59, 130, 246, 0.15) 100%);
+    background: linear-gradient(135deg,
+            rgba(10, 25, 47, 0.95) 0%,
+            rgba(10, 25, 47, 0.85) 50%,
+            rgba(10, 25, 47, 0.7) 100%);
     z-index: 1;
 }
 
@@ -721,12 +730,49 @@ h6 {
 
 
 /* ──────────────────────────────────────────────────────────
-   10. PORTFOLIO SECTION
+   11. WHATSAPP FLOATING BUTTON
    ────────────────────────────────────────────────────────── */
-.portfolio-col {
-    margin-bottom: 28px;
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25D366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 24px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: var(--transition);
 }
 
+.whatsapp-float:hover {
+    background-color: #128C7E;
+    color: #FFF;
+    transform: scale(1.05);
+}
+
+.whatsapp-float span {
+    font-size: 14px;
+    font-weight: 700;
+    margin-left: 10px;
+    font-family: var(--font-heading);
+}
+
+@media (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px;
+    }
+    .whatsapp-float span {
+        display: none;
+    }
+}
 .portfolio-card {
     border-radius: var(--radius-md);
     overflow: hidden;
